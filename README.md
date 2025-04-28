@@ -2,7 +2,7 @@ Weather prediction and pattern clustering system which allows for patterns in we
 
 The system is a web app which allows for data to be collected and cleaned from an ETL pipeline process. for full understanding read Chapter 4 of Dissertation.pdf
 
-
+Users can be created and have their queries be stored in their personal database for if they want to look back one the data. attributes can be selected and be used for genrating the weather patterns. Once proccesing is complete, query will be outputted on web page.
 
 
 Registration page.
