@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+Collect data
+{% endblock %}
+
+
+{% block label %}
+Collect data
+{% endblock %}
+
+{% block content1 %}
+<div class="scroll-container">
+    <div class="content">
+    <h2>Extraction Output</h2>
+    <div id="extractionOutput">
+        {% for line in output %}
+            <p>{{ line }}</p>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content2 %}
+<style>
+
+    /* Style for the image container */
+    .image-style {
+        max-width: 100%; /* Ensure the image container doesn't exceed its parent's width */
+        margin: 0 auto; /* Center the image container horizontally */
+        padding: 20px; /* Add some padding around the image */
+        text-align: center; /* Center the image horizontally */
+    }
+    
+    /* Style for the image */
+    .image-style img {
+        max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Make the image a block element to center it horizontally */
+    }
+
+
+
+    .scroll-container {
+        height: 497px; /* Adjusted height to fit within the border */
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #FFFFFF;
+        z-index: 2;
+    }
+    
+    .content {
+        text-align:left;
+        height: 100px; /* Set a height larger than the container to trigger the scrollbar */
+    }
+    
+    #extractionOutput {
+        padding-left: 10px; /* Add left padding for left alignment */
+    }
+
+    #extractionOutput p {
+        margin-bottom: 5px; /* Adjust the space between each line */
+    }
+
+
+    .dateRangeFormlabel {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .dateRangeForminput,
+    .latlabel,
+    .lonlabel {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+
+
+    .latkm,
+    .lonkm,
+    .m2km {
+        font-size: 14px;
+    }
+    .mySubmitButton {
+        background-color: #4caf50;
+        color: white;
+        padding: 7px 22px;
+        border: none;
+        font-size: 16px;
+    }
+
+    .mySubmitButton:hover {
+        background-color: #45a049;
+    }
+
+</style>
+
+    <form  method="POST" id="dataextractionform">
+
+            {{ form.hidden_tag() }}
+    
+                {{form.country.label(class='dateRangeFormlabel')}}
+                {{form.country(placeholder='from',class='dateRangeForminput')}}    
+                <hr>
+                
+                {{form.fromdate.label(class='')}}
+                {{form.fromdate(placeholder='from', id='lat' )}}
+                
+                {{form.todate.label(class='')}}
+                {{form.todate(placeholder='to', id='lat' )}}                                
+                
+                
+                
+                <hr>
+                {{form.lat_resolution.label(class='latlabel')}}
+                {{form.lat_resolution(placeholder='latitude resolution', id='lat' ,class='',onchange='latcoordtokm(this.value)')}}
+                
+                <p id='latkm' class='latkm'></p>
+                
+                
+                
+                {{form.lon_resolution.label(class='lonlabel')}}
+                {{form.lon_resolution(placeholder='longitude resolution', id='lon' ,class='',onchange='loncoordtokm(this.value)')}}
+                
+                <p id='lonkm' class='lonkm'></p>
+                
+                
+                <hr>
+                
+                
+                
+                <p id='m2km' class='m2km' ></p>
+                
+      
+              <div class="image-style">
+                <a href="https://www.visualcrossing.com">
+                    <img src="{{ url_for('static', filename='VisualCrossing.png') }}">
+                </a>
+              </div>          
+                
+                
+{% endblock %}
+
+{% block content4 %}
+
+    {{ form.submit(class='mySubmitButton')  }}
+    </form>    
+
+{% endblock %}
+
+
+{% block content3 %}
+
+        <div class="scroll-container">
+            <div class="content">
+
+                    
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% if messages %}
+                            {% for category,message in messages %}
+                                <div class='alert alert-{{ category }}'>
+                                    <button type='button' class='m1-2 mb-1 close' data-dismiss='alert' aria-label="Close">
+                                        <span aria-hidden='true'>&times;</span>
+                                    </button>
+                                    <div class="flash-message">
+                                        {{ message }}
+                                    </div>    
+                                </div>
+                            {% endfor %}                    
+                        {% endif %}
+                    {% endwith %}
+
+
+            </div>
+        </div>
+
+{% endblock %}
+
+
