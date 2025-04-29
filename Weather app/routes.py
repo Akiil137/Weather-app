@@ -158,7 +158,7 @@ def unsupervised():
         for err_msg in data_form.errors.values():
             flash(f'there was an error in creating a user: {err_msg}')
     #else:
-    #    print('nigga you fucked up')
+    #    print('an error has occured')
 
 
     # Render the form without pre-filled data for GET requests
