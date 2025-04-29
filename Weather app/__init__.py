@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # configuration 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Weather_app.db'  # SQLite database URI
-app.config['SECRET_KEY'] = '46c9ad803d608942636b8c73'  # secret key 
+app.config['SECRET_KEY'] = 'enter a secret key here'  # secret key 
 
 # initializing extensions
 db = SQLAlchemy(app)  # SQLAlchemy for database ORM
