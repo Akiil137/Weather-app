@@ -5,15 +5,15 @@ The system is a web app which allows for data to be collected and cleaned from a
 Users can be created and have their queries be stored in their personal database for if they want to look back one the data. attributes can be selected and be used for genrating the weather patterns. Once proccesing is complete, query will be outputted on web page.
 
 
-Data Extractor user interface
+Data Extractor user interface.
 
 ![data extractor ui](https://github.com/user-attachments/assets/114814c0-fe02-47fc-a99f-8e0603771110)
 
-Unsupervised process user interface
+Unsupervised process user interface.
 
 ![unsupervised process_ui](https://github.com/user-attachments/assets/9793fb37-7ee0-4d45-aa13-9b2453c620ec)
 
-Supervised process user interface
+Supervised process user interface.
 
 ![supervised process_ui](https://github.com/user-attachments/assets/26e503a9-16e8-43ab-aa6f-acdce8dd28aa)
 
